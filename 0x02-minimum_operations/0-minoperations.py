@@ -2,7 +2,7 @@
 """"""
 
 
-def minOperations(n):
+def minOperations(n: int) -> int:
     """"""
     if n == 1:
         return 0
@@ -16,7 +16,3 @@ def minOperations(n):
                 dp[i] = min(dp[i], dp[j] + (i // j))
 
     return dp[n]
-
-
-
-
