@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+""" 0.valditate utf-8"""
+
+
 def validUTF8(data):
+    """utf-8 validation"""
     # Number of bytes in the current UTF-8 character
     num_bytes = 0
 
@@ -18,7 +22,8 @@ def validUTF8(data):
                 num_bytes += 1
                 mask >>= 1
 
-            # 1-byte characters or characters with more than 4 bytes are invalid
+            # 1-byte characters or characters with
+            # more than 4 bytes are invalid
             if num_bytes == 0:
                 continue
             if num_bytes == 1 or num_bytes > 4:
@@ -31,5 +36,6 @@ def validUTF8(data):
         # Decrease the number of bytes left to process
         num_bytes -= 1
 
-    # If we finish processing all the bytes, the data is valid UTF-8 if no more bytes are expected
+    # If we finish processing all the bytes,
+    # the data is valid UTF-8 if no more bytes are expected
     return num_bytes == 0
