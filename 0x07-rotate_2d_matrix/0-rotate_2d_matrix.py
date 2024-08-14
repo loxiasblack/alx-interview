@@ -3,25 +3,14 @@
 
 
 def rotate_2d_matrix(matrix):
-    """new method that rotate 2d matrix"""
-    rotate_2d_matrix = []
+    """Rotate the given n x n 2D matrix 90 degrees clockwise."""
+    n = len(matrix)
 
-    j = 0
+    # Transpose the matrix
+    for i in range(n):
+        for j in range(i, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-    while j < len(matrix):
-        i = len(matrix) - 1
-        line = []
-        while i >= 0:
-            line.append(matrix[i][j])
-            i = i - 1
-        rotate_2d_matrix.append(line)
-        j += 1
-    n = 0
-    x = len(matrix)
-    while n < x - 1:
-        matrix.pop(n)
-        matrix.append(rotate_2d_matrix[n])
-        n += 1
-    matrix.pop(0)
-    matrix.append(rotate_2d_matrix[-1])
-    return matrix
+    # Reverse each row
+    for row in matrix:
+        row.reverse()
