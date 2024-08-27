@@ -3,7 +3,7 @@
 
 
 def island_perimeter(grid):
-    # grid is a list of lists of integers
+    """ grid is a list of lists of integers """
 
     perimeter = 0
     # iterate through the grid
