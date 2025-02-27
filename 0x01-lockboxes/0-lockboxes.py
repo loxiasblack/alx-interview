@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-"""
-Create a function that does returun if boxes can
-be unlcoked or not
-"""
+""" LockBoxes"""
 
 
 def canUnlockAll(boxes):
-    """ Method that determines if all boxes can be opened """
+    """
+        retuen if all boxes opened
+    """
+    keys = {0}
+    opened = set()
+    n_boxes = len(boxes)
 
-    for key in range(1, len(boxes)):
-        flag = False
-        for box in range(len(boxes)):
-            if key in boxes[box] and box != key:
-                flag = True
-                break
-        if not flag:
-            return False
-
-    return True
+    while (keys - opened):
+        current = (keys - opened).pop()
+        opened.add(current)
+        for key in boxes[current]:
+            if key not in opened and key < n_boxes:
+                keys.add(key)
+    return (len(opened) == n_boxes)
